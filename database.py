@@ -12,7 +12,7 @@ import pymysql
 #        USE_DB=true  → usa MySQL (produccion)
 # ------------------------------------------------------------
 USE_DB = os.getenv("USE_DB", "false").lower() == "true"
-JSON_FILE = os.getenv("JSON_FILE", "faccma_unified_out.json")
+JSON_FILE = os.getenv("JSON_FILE", "faccma_full.json")
 
 print(f"[CONFIG] USE_DB={USE_DB} | JSON_FILE={JSON_FILE}")
 
