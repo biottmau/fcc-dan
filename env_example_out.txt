@@ -1,0 +1,37 @@
+# ============================================================
+# FACCMA TENIS - Variables de entorno
+# Copiar este archivo como .env y completar los valores reales
+# ============================================================
+
+# ------------------------------------------------------------
+# MODO DE OPERACION
+# USE_DB=false  → modo demo, lee datos del JSON (sin MySQL)
+# USE_DB=true   → modo produccion, usa MySQL
+# ------------------------------------------------------------
+USE_DB=false
+
+# ------------------------------------------------------------
+# ARCHIVO JSON (solo usado cuando USE_DB=false)
+# Ruta al archivo de datos scrapeados
+# ------------------------------------------------------------
+JSON_FILE=faccma_unified_out.json
+
+# ------------------------------------------------------------
+# BASE DE DATOS (solo necesario cuando USE_DB=true)
+# Local (Docker o MySQL local):
+#   DB_HOST=localhost
+# Produccion (Lightsail/EC2 con MySQL en la misma instancia):
+#   DB_HOST=localhost
+# Produccion (RDS externo):
+#   DB_HOST=tu-rds-endpoint.rds.amazonaws.com
+# ------------------------------------------------------------
+DB_HOST=localhost
+DB_USER=faccma
+DB_PASSWORD=password_seguro_aqui
+DB_NAME=faccma_tenis
+
+# ------------------------------------------------------------
+# GOOGLE GEMINI API
+# Conseguila gratis en: aistudio.google.com -> "Get API Key"
+# ------------------------------------------------------------
+GEMINI_API_KEY=AIzaSy...
