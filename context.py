@@ -3,7 +3,6 @@
 # ============================================================
 
 import json
-from datetime import date
 
 from database import USE_DB, load_json_data, query
 
@@ -48,8 +47,7 @@ def build_context_from_json() -> str:
     proximos_list = []
     resultados_list = []
     jugadores_list = []
-
-    today = date.today().isoformat()
+    partidos_list = []
 
     for t in torneos:
         torneo_nombre = t.get("torneo", "")
@@ -84,6 +82,7 @@ def build_context_from_json() -> str:
                 jugadores_list.append(
                     {
                         "torneo": torneo_nombre,
+                        "anio": anio,
                         "categoria": categoria,
                         "equipo": equipo_nombre,
                         "jugador": j.get("nombre", ""),
@@ -91,17 +90,20 @@ def build_context_from_json() -> str:
                     }
                 )
 
-        # Series → proximos y resultados
+        # Series → proximos, resultados y partidos individuales
         for sr in t.get("series", []):
             estado = sr.get("estado", "PENDIENTE")
             fecha = sr.get("fecha", "")
+            equipo_local = sr.get("local", "")
+            equipo_visitante = sr.get("visitante", "")
             entrada = {
                 "torneo": torneo_nombre,
+                "anio": anio,
                 "categoria": categoria,
                 "fecha": fecha,
                 "hora": sr.get("hora"),
-                "local": sr.get("local"),
-                "visitante": sr.get("visitante"),
+                "local": equipo_local,
+                "visitante": equipo_visitante,
                 "score_local": sr.get("score_local", 0),
                 "score_visitante": sr.get("score_visitante", 0),
                 "estado": estado,
@@ -112,19 +114,41 @@ def build_context_from_json() -> str:
             elif estado in ("CONFIRMADO", "A CONFIRMAR"):
                 resultados_list.append(entrada)
 
+            # Partidos individuales (singles y dobles)
+            for p in sr.get("partidos", []):
+                if p.get("local") or p.get("visitante"):
+                    partidos_list.append(
+                        {
+                            "torneo": torneo_nombre,
+                            "anio": anio,
+                            "categoria": categoria,
+                            "fecha": fecha,
+                            "equipo_local": equipo_local,
+                            "equipo_visitante": equipo_visitante,
+                            "tipo": p.get("tipo", ""),
+                            "jugador_local": p.get("local", ""),
+                            "jugador_visitante": p.get("visitante", ""),
+                            "score": p.get("score", ""),
+                            "ganador": "local" if p.get("ganador") == "L" else "visitante" if p.get("ganador") == "V" else p.get("ganador", ""),
+                            "estado": p.get("estado", ""),
+                        }
+                    )
+
     print(
-        f"[DEBUG] jugadores: {len(jugadores_list)} | standings: {len(standings_list)} | proximos: {len(proximos_list)} | resultados: {len(resultados_list)}"
+        f"[DEBUG] standings: {len(standings_list)} | proximos: {len(proximos_list)} | resultados: {len(resultados_list)} | jugadores: {len(jugadores_list)} | partidos: {len(partidos_list)}"
     )
 
     ctx = []
     ctx.append("=== TABLA DE POSICIONES ===")
-    ctx.append(json.dumps(standings_list[:300], ensure_ascii=False, default=str))
+    ctx.append(json.dumps(standings_list, ensure_ascii=False, default=str))
     ctx.append("=== PROXIMOS PARTIDOS ===")
-    ctx.append(json.dumps(proximos_list[:100], ensure_ascii=False, default=str))
-    ctx.append("=== RESULTADOS RECIENTES ===")
-    ctx.append(json.dumps(resultados_list[:100], ensure_ascii=False, default=str))
+    ctx.append(json.dumps(proximos_list, ensure_ascii=False, default=str))
+    ctx.append("=== RESULTADOS DE SERIES ===")
+    ctx.append(json.dumps(resultados_list, ensure_ascii=False, default=str))
     ctx.append("=== JUGADORES POR EQUIPO ===")
     ctx.append(json.dumps(jugadores_list, ensure_ascii=False, default=str))
+    ctx.append("=== PARTIDOS INDIVIDUALES (singles y dobles con nombres de jugadores) ===")
+    ctx.append(json.dumps(partidos_list, ensure_ascii=False, default=str))
     return "\n".join(ctx)
 
 
