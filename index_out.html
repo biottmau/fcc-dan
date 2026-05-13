@@ -900,9 +900,11 @@
 
         <script>
             // ============================================================
-            // CONFIGURACION — cambiar por la URL real del backend en EC2
+            // CONFIGURACION — detecta automaticamente el entorno
             // ============================================================
-            const API_URL = "http://localhost:9000";
+            const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+                ? "http://localhost:9000"
+                : window.location.origin;
 
             // ============================================================
             // ESTADO
