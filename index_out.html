@@ -579,7 +579,7 @@
     </head>
     <body>
         <div id="topbar">
-            <h1>FACCMA Tenis</h1>
+            <h1>FACCMA Tenis...</h1>
             <span class="sub">Liga Macabea · Apertura 2026</span>
             <div class="spacer"></div>
             <a class="reg-btn" href="/reglamento.pdf" target="_blank">
@@ -902,9 +902,11 @@
             // ============================================================
             // CONFIGURACION — detecta automaticamente el entorno
             // ============================================================
-            const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-                ? "http://localhost:9000"
-                : window.location.origin;
+            const API_URL =
+                window.location.hostname === "localhost" ||
+                window.location.hostname === "127.0.0.1"
+                    ? "http://localhost:9000"
+                    : window.location.origin;
 
             // ============================================================
             // ESTADO
