@@ -65,10 +65,24 @@ partidos(partido_id PK, categoria_id FK, source_serie_id,
   - CONFIRMADO / 'A CONFIRMAR' = partidos ya jugados (resultados)
   - sets_local / sets_visitante = parciales ganados por cada equipo
 
+partidos_individuales(id PK, id_serie INTEGER,
+  torneo TEXT, anio INTEGER, categoria TEXT, zona TEXT,
+  equipo_local TEXT, equipo_visitante TEXT,
+  tipo TEXT,            -- 'Single 1', 'Doble 1', 'Doble 2', 'Doble 3'
+  jugador_local TEXT,   -- nombre(s) ABREVIADO: 'APELLIDO, N.' o 'AP1, N. / AP2, N.' en dobles
+  jugador_visitante TEXT,
+  score TEXT,           -- ej: '6-3, 7-5'
+  ganador TEXT,         -- 'L' = local ganó, 'V' = visitante ganó
+  estado TEXT)          -- 'Finalizado', 'WO', etc.
+  !! CRITICO: jugador_local y jugador_visitante usan APELLIDO + INICIAL (ej: 'HOLCMAN, D.' NO 'HOLCMAN, DANIEL')
+  !! Para buscar por apellido SIEMPRE usar solo el apellido: WHERE jugador_local ILIKE '%HOLCMAN%' OR jugador_visitante ILIKE '%HOLCMAN%'
+  Para saber si ganó: si ganador='L' y está en jugador_local → ganó. Si ganador='V' y está en jugador_visitante → ganó.
+
 RELACIONES CLAVE:
   jugador -> equipo -> categoria -> torneo
   partido -> categoria -> torneo
   tabla_posiciones -> equipo + categoria
+  partidos_individuales.id_serie -> partidos.source_serie_id (referencia, no FK estricta)
 """
 
 # ------------------------------------------------------------
