@@ -5,11 +5,12 @@
 import json
 import os
 
-import pymysql
+import psycopg2
+import psycopg2.extras
 
 # ------------------------------------------------------------
-# MODO: USE_DB=false → lee el JSON sin MySQL
-#        USE_DB=true  → usa MySQL (produccion)
+# MODO: USE_DB=false → lee el JSON sin PostgreSQL
+#        USE_DB=true  → usa PostgreSQL (produccion)
 # ------------------------------------------------------------
 USE_DB = os.getenv("USE_DB", "false").lower() == "true"
 JSON_FILE = os.getenv("JSON_FILE", "faccma_full.json")
@@ -17,15 +18,15 @@ JSON_FILE = os.getenv("JSON_FILE", "faccma_full.json")
 print(f"[CONFIG] USE_DB={USE_DB} | JSON_FILE={JSON_FILE}")
 
 # ------------------------------------------------------------
-# CONFIG DB (usar variables de entorno en AWS)
+# CONFIG DB (variables de entorno - Supabase / PostgreSQL)
 # ------------------------------------------------------------
 DB_CONFIG = {
     "host": os.getenv("DB_HOST", "localhost"),
-    "user": os.getenv("DB_USER", "faccma"),
+    "user": os.getenv("DB_USER", "postgres"),
     "password": os.getenv("DB_PASSWORD", ""),
-    "database": os.getenv("DB_NAME", "faccma_tenis"),
-    "charset": "utf8mb4",
-    "cursorclass": pymysql.cursors.DictCursor,
+    "dbname": os.getenv("DB_NAME", "postgres"),
+    "port": int(os.getenv("DB_PORT", "6543")),
+    "sslmode": os.getenv("DB_SSLMODE", "require"),
 }
 
 # Cache del JSON en memoria (solo modo demo)
@@ -50,16 +51,17 @@ def load_json_data():
 
 
 def get_db():
-    """Retorna una conexion a MySQL (solo se usa si USE_DB=true)."""
-    return pymysql.connect(**DB_CONFIG)
+    """Retorna una conexion a PostgreSQL (solo se usa si USE_DB=true)."""
+    return psycopg2.connect(**DB_CONFIG)
 
 
 def query(sql, params=None):
-    """Ejecuta una consulta SQL y retorna todos los resultados."""
+    """Ejecuta una consulta SQL y retorna todos los resultados como lista de dicts."""
     conn = get_db()
     try:
-        with conn.cursor() as cur:
+        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
             cur.execute(sql, params or ())
-            return cur.fetchall()
+            rows = cur.fetchall()
+            return [dict(r) for r in rows]
     finally:
         conn.close()
