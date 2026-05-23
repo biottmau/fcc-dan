@@ -1166,11 +1166,19 @@
                         }),
                     });
                     const data = await res.json();
-                    const reply =
-                        data.reply || "No pude procesar la respuesta.";
+                    let reply;
+                    if (!res.ok) {
+                        reply = data.detail || "No pude procesar la respuesta.";
+                    } else {
+                        reply = data.reply || "No pude procesar la respuesta.";
+                    }
                     chatHistory.push({ role: "assistant", content: reply });
                     hideTyping();
-                    addBubble("bot", reply);
+                    const bub = addBubble("bot", reply);
+                    if (!res.ok) {
+                        bub.style.background = "#fef3c7";
+                        bub.style.color = "#92400e";
+                    }
                 } catch (e) {
                     hideTyping();
                     const bub = addBubble(
