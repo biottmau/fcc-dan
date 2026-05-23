@@ -5,9 +5,11 @@
 # ============================================================
 
 import json
+import logging
 import os
 from typing import Optional
 
+import psycopg2
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -16,6 +18,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, PlainTextResponse
 from google import genai
+from google.genai import errors as genai_errors
 from google.genai import types
 from pydantic import BaseModel
 
@@ -23,6 +26,62 @@ from context import DB_SCHEMA, SYSTEM_PROMPT, build_context_from_json, build_pro
 
 # Modulos propios
 from database import USE_DB, load_json_data, query
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logger = logging.getLogger(__name__)
+
+# ------------------------------------------------------------
+# GEMINI CONFIG
+# ------------------------------------------------------------
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+gemini_client = genai.Client(api_key=GEMINI_API_KEY)
+GEMINI_MODEL = "gemini-2.5-flash"
+
+# ------------------------------------------------------------
+# CLASIFICACION DE ERRORES
+# ------------------------------------------------------------
+def _classify_error(e: Exception) -> tuple[int, str]:
+    """
+    Retorna (http_status, mensaje_usuario) según el tipo de error.
+    Loguea el error completo para debugging.
+    """
+    msg = str(e)
+    logger.error(f"[ERROR] {type(e).__name__}: {msg}")
+
+    # --- Errores de Gemini ---
+    if isinstance(e, genai_errors.ClientError):
+        status = getattr(e, "status", None) or 0
+        msg_lower = msg.lower()
+        if status == 429 or "quota" in msg_lower or "rate limit" in msg_lower or "resource_exhausted" in msg_lower:
+            return 429, "⚠️ Se alcanzó el límite de consultas a la IA. Esperá unos minutos e intentá de nuevo."
+        if status == 400 or "token" in msg_lower or "too long" in msg_lower:
+            return 400, "⚠️ La conversación es demasiado larga. Empezá una nueva conversación."
+        if status == 401 or "api_key" in msg_lower or "unauthorized" in msg_lower:
+            return 500, "⚠️ Error de autenticación con la IA. Contactá al administrador."
+        return 400, f"⚠️ Error de la IA ({status}). Intentá reformular la pregunta."
+
+    if isinstance(e, genai_errors.ServerError):
+        return 503, "⚠️ El servicio de IA no está disponible en este momento. Intentá más tarde."
+
+    if isinstance(e, genai_errors.APIError):
+        return 502, "⚠️ Error al comunicarse con la IA. Intentá más tarde."
+
+    # --- Errores de base de datos ---
+    if isinstance(e, psycopg2.OperationalError):
+        return 503, "⚠️ No se puede conectar a la base de datos. Intentá en unos minutos."
+
+    if isinstance(e, psycopg2.ProgrammingError):
+        return 500, "⚠️ Error en la consulta generada (SQL inválido). Reformulá la pregunta."
+
+    if isinstance(e, psycopg2.Error):
+        return 500, f"⚠️ Error en la base de datos: {type(e).__name__}."
+
+    # --- Errores de validación SQL ---
+    if isinstance(e, ValueError):
+        return 400, f"⚠️ Consulta no permitida: {msg}"
+
+    # --- Error desconocido ---
+    return 500, f"⚠️ Error inesperado al procesar la consulta. Intentá de nuevo."
 
 # ------------------------------------------------------------
 # GEMINI CONFIG
@@ -87,18 +146,14 @@ async def _chat_with_sql(
     temp: float = 0.2,
 ) -> str:
     """
-    Flujo de chat con Function Calling:
+    Flujo de chat con Function Calling.
     Gemini llama a execute_sql → backend valida y ejecuta → Gemini recibe resultados → responde.
     Se permite hasta 5 rondas de consultas para preguntas complejas.
+    Lanza excepciones tipadas para que el caller pueda clasificarlas correctamente.
     """
     config_with_tools = types.GenerateContentConfig(
         system_instruction=system,
         tools=[EXECUTE_SQL_TOOL],
-        max_output_tokens=max_tokens,
-        temperature=temp,
-    )
-    config_final = types.GenerateContentConfig(
-        system_instruction=system,
         max_output_tokens=max_tokens,
         temperature=temp,
     )
@@ -110,29 +165,39 @@ async def _chat_with_sql(
     )
 
     for _ in range(5):
-        fn_parts = [
-            p for p in response.candidates[0].content.parts
-            if p.function_call
-        ]
+        candidate = response.candidates[0]
+
+        # Verificar finish_reason antes de continuar
+        finish = str(candidate.finish_reason)
+        if "MAX_TOKENS" in finish:
+            raise genai_errors.ClientError(
+                message="La respuesta fue cortada por límite de tokens (MAX_TOKENS).",
+                response=None,
+            )
+        if "SAFETY" in finish:
+            return "No puedo responder esa consulta por restricciones de seguridad."
+
+        fn_parts = [p for p in candidate.content.parts if p.function_call]
         if not fn_parts:
             break
 
-        # Agregar respuesta del modelo al hilo
-        contents.append(response.candidates[0].content)
+        contents.append(candidate.content)
 
-        # Ejecutar cada function call y armar las respuestas
         fn_responses = []
         for part in fn_parts:
             fc = part.function_call
             try:
                 sql = fc.args["query"]
-                print(f"[SQL] {sql}")
+                logger.info(f"[SQL] {sql}")
                 rows = validate_and_run(sql)
                 result = json.dumps(rows, ensure_ascii=False, default=str)
-                print(f"[SQL] {len(rows)} filas retornadas")
+                logger.info(f"[SQL] {len(rows)} filas retornadas")
             except Exception as e:
-                result = f"Error: {str(e)}"
-                print(f"[SQL ERROR] {result}")
+                # Propagar errores de DB para clasificación correcta
+                if isinstance(e, psycopg2.Error):
+                    raise
+                result = f"Error ejecutando consulta: {str(e)}"
+                logger.warning(f"[SQL WARN] {result}")
 
             fn_responses.append(
                 types.Part(
@@ -205,7 +270,8 @@ async def chat(req: ChatRequest):
             reply = response.text
         return ChatResponse(reply=reply)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        http_status, user_msg = _classify_error(e)
+        raise HTTPException(status_code=http_status, detail=user_msg)
 
 
 @app.get("/standings/{id_categoria}")
@@ -503,11 +569,20 @@ def buscar_jugador(nombre: str):
 
 @app.get("/health")
 def health():
-    return {
-        "status": "ok",
-        "service": "FACCMA Tenis API",
-        "modo": "demo (JSON)" if not USE_DB else "produccion (PostgreSQL)",
-    }
+    status = {"service": "FACCMA Tenis API", "modo": "demo (JSON)" if not USE_DB else "produccion (PostgreSQL)"}
+
+    if USE_DB:
+        try:
+            from database import get_db
+            conn = get_db()
+            conn.close()
+            status["db"] = "ok"
+        except Exception as e:
+            status["db"] = f"error: {str(e)[:80]}"
+
+    status["gemini"] = "ok" if GEMINI_API_KEY else "sin api key"
+    status["status"] = "ok" if status.get("db", "ok") == "ok" else "degraded"
+    return status
 
 
 # ------------------------------------------------------------
@@ -540,8 +615,9 @@ async def whatsapp_webhook(request: Request):
                 config=types.GenerateContentConfig(max_output_tokens=400, temperature=0.2),
             )
             reply = response.text
-    except Exception:
-        reply = "Lo siento, hubo un error procesando tu consulta. Intenta nuevamente."
+    except Exception as e:
+        _, user_msg = _classify_error(e)
+        reply = user_msg
 
     twiml = f"""<?xml version='1.0' encoding='UTF-8'?>
 <Response>
