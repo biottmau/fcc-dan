@@ -125,6 +125,15 @@ SYSTEM_PROMPT_DB = (
 )
 
 
+# ------------------------------------------------------------
+# MODELOS (definidos aquí para que estén disponibles en las funciones de abajo)
+# ------------------------------------------------------------
+class TokenUsage(BaseModel):
+    tokens_in: int = 0
+    tokens_out: int = 0
+    tokens_total: int = 0
+
+
 def _build_contents(history: list, user_message: str) -> list:
     """Convierte historial + mensaje actual a lista de Content para Gemini."""
     contents = []
@@ -242,12 +251,6 @@ app.add_middleware(
 class ChatRequest(BaseModel):
     message: str
     history: list = []
-
-
-class TokenUsage(BaseModel):
-    tokens_in: int = 0
-    tokens_out: int = 0
-    tokens_total: int = 0
 
 
 class ChatResponse(BaseModel):
