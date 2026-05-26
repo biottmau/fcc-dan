@@ -22,12 +22,20 @@ from google.genai import errors as genai_errors
 from google.genai import types
 from pydantic import BaseModel
 
-from context import DB_SCHEMA, SYSTEM_PROMPT, build_context_from_json, build_prompt, validate_and_run
+from context import (
+    DB_SCHEMA,
+    SYSTEM_PROMPT,
+    build_context_from_json,
+    build_prompt,
+    validate_and_run,
+)
 
 # Modulos propios
 from database import USE_DB, load_json_data, query
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
+)
 logger = logging.getLogger(__name__)
 
 # ------------------------------------------------------------
@@ -35,7 +43,8 @@ logger = logging.getLogger(__name__)
 # ------------------------------------------------------------
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 gemini_client = genai.Client(api_key=GEMINI_API_KEY)
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+
 
 # ------------------------------------------------------------
 # CLASIFICACION DE ERRORES
@@ -52,26 +61,46 @@ def _classify_error(e: Exception) -> tuple[int, str]:
     if isinstance(e, genai_errors.ClientError):
         status = getattr(e, "status", None) or 0
         msg_lower = msg.lower()
-        if status == 429 or "quota" in msg_lower or "rate limit" in msg_lower or "resource_exhausted" in msg_lower:
-            return 429, "⚠️ Se alcanzó el límite de consultas a la IA. Esperá unos minutos e intentá de nuevo."
+        if (
+            status == 429
+            or "quota" in msg_lower
+            or "rate limit" in msg_lower
+            or "resource_exhausted" in msg_lower
+        ):
+            return (
+                429,
+                "⚠️ Se alcanzó el límite de consultas a la IA. Esperá unos minutos e intentá de nuevo.",
+            )
         if status == 400 or "token" in msg_lower or "too long" in msg_lower:
-            return 400, "⚠️ La conversación es demasiado larga. Empezá una nueva conversación."
+            return (
+                400,
+                "⚠️ La conversación es demasiado larga. Empezá una nueva conversación.",
+            )
         if status == 401 or "api_key" in msg_lower or "unauthorized" in msg_lower:
             return 500, "⚠️ Error de autenticación con la IA. Contactá al administrador."
         return 400, f"⚠️ Error de la IA ({status}). Intentá reformular la pregunta."
 
     if isinstance(e, genai_errors.ServerError):
-        return 503, "⚠️ El servicio de IA no está disponible en este momento. Intentá más tarde."
+        return (
+            503,
+            "⚠️ El servicio de IA no está disponible en este momento. Intentá más tarde.",
+        )
 
     if isinstance(e, genai_errors.APIError):
         return 502, "⚠️ Error al comunicarse con la IA. Intentá más tarde."
 
     # --- Errores de base de datos ---
     if isinstance(e, psycopg2.OperationalError):
-        return 503, "⚠️ No se puede conectar a la base de datos. Intentá en unos minutos."
+        return (
+            503,
+            "⚠️ No se puede conectar a la base de datos. Intentá en unos minutos.",
+        )
 
     if isinstance(e, psycopg2.ProgrammingError):
-        return 500, "⚠️ Error en la consulta generada (SQL inválido). Reformulá la pregunta."
+        return (
+            500,
+            "⚠️ Error en la consulta generada (SQL inválido). Reformulá la pregunta.",
+        )
 
     if isinstance(e, psycopg2.Error):
         return 500, f"⚠️ Error en la base de datos: {type(e).__name__}."
@@ -82,6 +111,7 @@ def _classify_error(e: Exception) -> tuple[int, str]:
 
     # --- Error desconocido ---
     return 500, f"⚠️ Error inesperado al procesar la consulta. Intentá de nuevo."
+
 
 # ------------------------------------------------------------
 # GEMINI CONFIG
@@ -116,8 +146,7 @@ EXECUTE_SQL_TOOL = types.Tool(
 )
 
 SYSTEM_PROMPT_DB = (
-    SYSTEM_PROMPT
-    + "\n\nTenés acceso a una base de datos PostgreSQL. "
+    SYSTEM_PROMPT + "\n\nTenés acceso a una base de datos PostgreSQL. "
     "Usá la función execute_sql para consultar los datos que necesites antes de responder. "
     "Podés hacer múltiples consultas si es necesario. "
     "NUNCA respondas sin consultar la base de datos primero cuando la pregunta requiera datos.\n\n"
@@ -142,9 +171,7 @@ def _build_contents(history: list, user_message: str) -> list:
         contents.append(
             types.Content(role=role, parts=[types.Part(text=msg.get("content", ""))])
         )
-    contents.append(
-        types.Content(role="user", parts=[types.Part(text=user_message)])
-    )
+    contents.append(types.Content(role="user", parts=[types.Part(text=user_message)]))
     return contents
 
 
@@ -279,13 +306,18 @@ async def chat(req: ChatRequest):
             response = gemini_client.models.generate_content(
                 model=GEMINI_MODEL,
                 contents=prompt,
-                config=types.GenerateContentConfig(max_output_tokens=1000, temperature=0.2),
+                config=types.GenerateContentConfig(
+                    max_output_tokens=1000, temperature=0.2
+                ),
             )
             reply = response.text
             usage = TokenUsage(
-                tokens_in=getattr(response.usage_metadata, "prompt_token_count", 0) or 0,
-                tokens_out=getattr(response.usage_metadata, "candidates_token_count", 0) or 0,
-                tokens_total=getattr(response.usage_metadata, "total_token_count", 0) or 0,
+                tokens_in=getattr(response.usage_metadata, "prompt_token_count", 0)
+                or 0,
+                tokens_out=getattr(response.usage_metadata, "candidates_token_count", 0)
+                or 0,
+                tokens_total=getattr(response.usage_metadata, "total_token_count", 0)
+                or 0,
             )
         return ChatResponse(reply=reply, usage=usage)
     except Exception as e:
@@ -588,11 +620,15 @@ def buscar_jugador(nombre: str):
 
 @app.get("/health")
 def health():
-    status = {"service": "FACCMA Tenis API", "modo": "demo (JSON)" if not USE_DB else "produccion (PostgreSQL)"}
+    status = {
+        "service": "FACCMA Tenis API",
+        "modo": "demo (JSON)" if not USE_DB else "produccion (PostgreSQL)",
+    }
 
     if USE_DB:
         try:
             from database import get_db
+
             conn = get_db()
             conn.close()
             status["db"] = "ok"
@@ -631,7 +667,9 @@ async def whatsapp_webhook(request: Request):
             response = gemini_client.models.generate_content(
                 model=GEMINI_MODEL,
                 contents=prompt,
-                config=types.GenerateContentConfig(max_output_tokens=400, temperature=0.2),
+                config=types.GenerateContentConfig(
+                    max_output_tokens=400, temperature=0.2
+                ),
             )
             reply = response.text
     except Exception as e:
