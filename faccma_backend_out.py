@@ -144,7 +144,7 @@ async def _chat_with_sql(
     system: str,
     max_tokens: int = 1000,
     temp: float = 0.2,
-) -> str:
+) -> tuple[str, TokenUsage]:
     """
     Flujo de chat con Function Calling.
     Gemini llama a execute_sql → backend valida y ejecuta → Gemini recibe resultados → responde.
@@ -216,7 +216,11 @@ async def _chat_with_sql(
             config=config_with_tools,
         )
 
-    return response.text
+    return response.text, TokenUsage(
+        tokens_in=getattr(response.usage_metadata, "prompt_token_count", 0) or 0,
+        tokens_out=getattr(response.usage_metadata, "candidates_token_count", 0) or 0,
+        tokens_total=getattr(response.usage_metadata, "total_token_count", 0) or 0,
+    )
 
 
 # ------------------------------------------------------------
@@ -240,8 +244,15 @@ class ChatRequest(BaseModel):
     history: list = []
 
 
+class TokenUsage(BaseModel):
+    tokens_in: int = 0
+    tokens_out: int = 0
+    tokens_total: int = 0
+
+
 class ChatResponse(BaseModel):
     reply: str
+    usage: Optional[TokenUsage] = None
 
 
 # ------------------------------------------------------------
@@ -257,7 +268,7 @@ async def chat(req: ChatRequest):
     try:
         if USE_DB:
             contents = _build_contents(req.history, req.message)
-            reply = await _chat_with_sql(contents, SYSTEM_PROMPT_DB)
+            reply, usage = await _chat_with_sql(contents, SYSTEM_PROMPT_DB)
         else:
             context = build_context_from_json()
             system = SYSTEM_PROMPT + "\n\nDATOS ACTUALES:\n" + context
@@ -268,7 +279,12 @@ async def chat(req: ChatRequest):
                 config=types.GenerateContentConfig(max_output_tokens=1000, temperature=0.2),
             )
             reply = response.text
-        return ChatResponse(reply=reply)
+            usage = TokenUsage(
+                tokens_in=getattr(response.usage_metadata, "prompt_token_count", 0) or 0,
+                tokens_out=getattr(response.usage_metadata, "candidates_token_count", 0) or 0,
+                tokens_total=getattr(response.usage_metadata, "total_token_count", 0) or 0,
+            )
+        return ChatResponse(reply=reply, usage=usage)
     except Exception as e:
         http_status, user_msg = _classify_error(e)
         raise HTTPException(status_code=http_status, detail=user_msg)

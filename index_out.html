@@ -375,6 +375,32 @@
                 border-radius: 50%;
                 background: var(--verde);
             }
+            #token-info {
+                font-size: 10px;
+                color: var(--muted);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 3px;
+                min-width: 110px;
+            }
+            #token-info .token-label {
+                white-space: nowrap;
+            }
+            #token-bar-wrap {
+                width: 100%;
+                height: 4px;
+                background: #e5e7eb;
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            #token-bar {
+                height: 100%;
+                width: 0%;
+                background: var(--verde);
+                border-radius: 4px;
+                transition: width 0.4s ease, background 0.4s ease;
+            }
             #chat-msgs {
                 flex: 1;
                 overflow-y: auto;
@@ -798,6 +824,12 @@
                                 <div class="online-dot"></div>
                                 en linea
                             </div>
+                            <div id="token-info" style="display:none;">
+                                <span class="token-label" id="token-label">0 tokens usados</span>
+                                <div id="token-bar-wrap">
+                                    <div id="token-bar"></div>
+                                </div>
+                            </div>
                         </div>
                         <div id="chat-msgs">
                             <div class="msg bot">
@@ -1094,6 +1126,21 @@
             // ============================================================
             // CHAT
             // ============================================================
+            const GEMINI_CTX_LIMIT = 1_048_576; // Gemini 2.5 Flash context window
+
+            function updateTokenInfo(usage) {
+                const total = usage.tokens_total || 0;
+                const pct = Math.min((total / GEMINI_CTX_LIMIT) * 100, 100);
+                const bar = document.getElementById("token-bar");
+                const label = document.getElementById("token-label");
+                const info = document.getElementById("token-info");
+                info.style.display = "flex";
+                label.textContent = `${total.toLocaleString()} / ${(GEMINI_CTX_LIMIT / 1000).toFixed(0)}k tokens`;
+                bar.style.width = pct.toFixed(2) + "%";
+                if (pct > 80) bar.style.background = "#ef4444";
+                else if (pct > 50) bar.style.background = "#f59e0b";
+                else bar.style.background = "var(--verde)";
+            }
             function scrollChat() {
                 const m = document.getElementById("chat-msgs");
                 m.scrollTop = m.scrollHeight;
@@ -1171,6 +1218,7 @@
                         reply = data.detail || "No pude procesar la respuesta.";
                     } else {
                         reply = data.reply || "No pude procesar la respuesta.";
+                        if (data.usage) updateTokenInfo(data.usage);
                     }
                     chatHistory.push({ role: "assistant", content: reply });
                     hideTyping();
