@@ -4,6 +4,7 @@
 # Deploy: AWS EC2 / Render / Supabase
 # ============================================================
 
+import asyncio
 import json
 import logging
 import os
@@ -118,7 +119,7 @@ def _classify_error(e: Exception) -> tuple[int, str]:
 # ------------------------------------------------------------
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 gemini_client = genai.Client(api_key=GEMINI_API_KEY)
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 # ------------------------------------------------------------
 # TOOL: execute_sql (Text-to-SQL con Function Calling)
@@ -146,10 +147,15 @@ EXECUTE_SQL_TOOL = types.Tool(
 )
 
 SYSTEM_PROMPT_DB = (
-    SYSTEM_PROMPT + "\n\nTenés acceso a una base de datos PostgreSQL. "
-    "Usá la función execute_sql para consultar los datos que necesites antes de responder. "
-    "Podés hacer múltiples consultas si es necesario. "
-    "NUNCA respondas sin consultar la base de datos primero cuando la pregunta requiera datos.\n\n"
+    SYSTEM_PROMPT + "\n\nTenés acceso a una base de datos PostgreSQL mediante la función execute_sql.\n"
+    "REGLAS ABSOLUTAS — NUNCA las violes:\n"
+    "- NUNCA escribas SQL en el texto de tu respuesta. El SQL va SOLO dentro de execute_sql.\n"
+    "- NUNCA escribas 'execute_sql:', 'SELECT', 'WITH', 'FROM' ni ningún código SQL en el chat.\n"
+    "- NUNCA expliques lo que vas a hacer ni lo que estás buscando.\n"
+    "- NUNCA respondas con texto antes de terminar todas las consultas necesarias.\n"
+    "- Llamá a execute_sql directamente, tantas veces como necesites, sin texto intermedio.\n"
+    "- Solo escribí texto al final, cuando ya tenés todos los datos.\n"
+    "- Preguntas sobre reglamento: respondé directamente sin SQL.\n\n"
     "SCHEMA DE LA BASE DE DATOS:\n" + DB_SCHEMA
 )
 
@@ -175,6 +181,24 @@ def _build_contents(history: list, user_message: str) -> list:
     return contents
 
 
+async def _gemini_generate(contents: list, config, reintentos: int = 3) -> object:
+    """Llama a Gemini con reintentos automáticos ante errores 503 temporales."""
+    for intento in range(reintentos):
+        try:
+            return gemini_client.models.generate_content(
+                model=GEMINI_MODEL,
+                contents=contents,
+                config=config,
+            )
+        except genai_errors.ServerError:
+            if intento < reintentos - 1:
+                espera = 2.0 * (intento + 1)   # 2s, 4s
+                logger.warning(f"[GEMINI] 503 temporal — reintentando en {espera:.0f}s ({intento + 1}/{reintentos - 1})")
+                await asyncio.sleep(espera)
+            else:
+                raise
+
+
 async def _chat_with_sql(
     contents: list,
     system: str,
@@ -187,20 +211,22 @@ async def _chat_with_sql(
     Se permite hasta 5 rondas de consultas para preguntas complejas.
     Lanza excepciones tipadas para que el caller pueda clasificarlas correctamente.
     """
+    from datetime import datetime as _dt
+    hoy = _dt.now().strftime("%d/%m/%Y")
+    dia_semana = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"][_dt.now().weekday()]
+    system = f"Hoy es {dia_semana} {hoy}.\n\n" + system
+
     config_with_tools = types.GenerateContentConfig(
         system_instruction=system,
         tools=[EXECUTE_SQL_TOOL],
         max_output_tokens=max_tokens,
         temperature=temp,
+        thinking_config=types.ThinkingConfig(thinking_budget=0),
     )
 
-    response = gemini_client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=contents,
-        config=config_with_tools,
-    )
+    response = await _gemini_generate(contents, config_with_tools)
 
-    for _ in range(5):
+    for _ in range(8):
         candidate = response.candidates[0]
 
         # Verificar finish_reason antes de continuar
@@ -211,8 +237,10 @@ async def _chat_with_sql(
                 response=None,
             )
         if "SAFETY" in finish:
-            return "No puedo responder esa consulta por restricciones de seguridad."
+            return "No puedo responder esa consulta por restricciones de seguridad.", TokenUsage()
 
+        if not candidate.content or not candidate.content.parts:
+            break
         fn_parts = [p for p in candidate.content.parts if p.function_call]
         if not fn_parts:
             break
@@ -246,13 +274,20 @@ async def _chat_with_sql(
 
         contents.append(types.Content(role="user", parts=fn_responses))
 
-        response = gemini_client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=contents,
-            config=config_with_tools,
-        )
+        response = await _gemini_generate(contents, config_with_tools)
 
-    return response.text, TokenUsage(
+    # Si response.text es None, Gemini terminó en una function call sin respuesta final.
+    # Hacer una llamada final sin herramientas para forzar texto.
+    if not response.text:
+        config_text_only = types.GenerateContentConfig(
+            system_instruction=system,
+            max_output_tokens=max_tokens,
+            temperature=temp,
+            thinking_config=types.ThinkingConfig(thinking_budget=0),
+        )
+        response = await _gemini_generate(contents, config_text_only)
+
+    return response.text or "No pude generar una respuesta.", TokenUsage(
         tokens_in=getattr(response.usage_metadata, "prompt_token_count", 0) or 0,
         tokens_out=getattr(response.usage_metadata, "candidates_token_count", 0) or 0,
         tokens_total=getattr(response.usage_metadata, "total_token_count", 0) or 0,
@@ -291,6 +326,11 @@ class ChatResponse(BaseModel):
 @app.get("/")
 def serve_index():
     return FileResponse("index_out.html")
+
+
+@app.get("/logo-faccma.png")
+def serve_logo():
+    return FileResponse("logo-faccma.png", media_type="image/png")
 
 
 @app.post("/chat", response_model=ChatResponse)
@@ -345,33 +385,72 @@ def get_standings(id_categoria: int):
 
 
 @app.get("/standings-by-name")
-def get_standings_by_name(categoria: Optional[str] = None):
-    """Endpoint compatible con el frontend: devuelve standings con nombres de campos esperados."""
-    data = load_json_data()
-    result = []
-    for t in data.get("torneos", []):
-        if categoria and t.get("categoria", "").lower() != categoria.lower():
-            continue
-        for s in t.get("standings", []):
-            result.append(
-                {
-                    "posicion": s.get("pos"),
-                    "equipo": s.get("equipo"),
-                    "series_jugadas": s.get("pj"),
-                    "series_ganadas": s.get("pg"),
-                    "series_perdidas": s.get("pp"),
-                    "parciales_favor": s.get("sg"),
-                    "parciales_contra": s.get("sp"),
-                    "dif_sets": s.get("dif_sets"),
-                    "dif_games": s.get("dif_games"),
-                    "puntos": s.get("pts"),
-                    "torneo": t.get("torneo"),
-                    "anio": t.get("anio"),
-                    "categoria": t.get("categoria"),
-                    "genero": t.get("genero"),
-                }
-            )
-    return result[:300]
+def get_standings_by_name(categoria: Optional[str] = None, anio: Optional[int] = None):
+    if not categoria:
+        return []
+    if not USE_DB:
+        result = []
+        data = load_json_data()
+        for t in data.get("torneos", []):
+            if t.get("categoria", "").lower() != categoria.lower():
+                continue
+            if anio and t.get("anio") != anio:
+                continue
+            for s in t.get("standings", []):
+                result.append(
+                    {
+                        "posicion": s.get("pos"),
+                        "equipo": s.get("equipo"),
+                        "series_jugadas": s.get("pj"),
+                        "series_ganadas": s.get("pg"),
+                        "parciales_favor": s.get("sg"),
+                        "dif_sets": s.get("dif_sets"),
+                        "dif_games": s.get("dif_games"),
+                        "puntos": s.get("pts"),
+                        "torneo": t.get("torneo"),
+                        "anio": t.get("anio"),
+                        "categoria": t.get("categoria"),
+                    }
+                )
+        return result[:300]
+
+    # Modo DB: devuelve el torneo más reciente para la categoría,
+    # o filtra por año si se pasa el parámetro ?anio=
+    anio_filter = f"AND t.nombre ILIKE %s" if anio else ""
+    params = [categoria, categoria]
+    if anio:
+        params.append(f"%{anio}%")
+
+    return query(
+        f"""
+        SELECT tp.posicion,
+               eq.nombre          AS equipo,
+               tp.series_jugadas,
+               tp.series_ganadas,
+               tp.parciales_favor,
+               tp.diferencia_sets  AS dif_sets,
+               tp.diferencia_games AS dif_games,
+               tp.puntos,
+               t.nombre            AS torneo,
+               c.nombre            AS categoria
+        FROM tabla_posiciones tp
+        JOIN equipos    eq ON tp.equipo_id    = eq.equipo_id
+        JOIN categorias  c ON tp.categoria_id  = c.categoria_id
+        JOIN torneos     t ON c.torneo_id      = t.torneo_id
+        WHERE c.nombre = %s
+          AND c.torneo_id = (
+              SELECT c2.torneo_id
+              FROM categorias c2
+              JOIN torneos t2 ON c2.torneo_id = t2.torneo_id
+              WHERE c2.nombre = %s
+              {anio_filter}
+              ORDER BY t2.fecha_generacion DESC
+              LIMIT 1
+          )
+        ORDER BY tp.posicion
+        """,
+        params,
+    )
 
 
 @app.get("/standings-demo")
@@ -658,7 +737,7 @@ async def whatsapp_webhook(request: Request):
                 + "\nIMPORTANTE: Respondé en máximo 3-4 líneas. Sé muy conciso para WhatsApp."
             )
             contents = _build_contents([], incoming_msg)
-            reply = await _chat_with_sql(contents, system_wa, max_tokens=400)
+            reply, _ = await _chat_with_sql(contents, system_wa, max_tokens=400)
         else:
             context = build_context_from_json()
             system = SYSTEM_PROMPT + "\n\nDATOS:\n" + context

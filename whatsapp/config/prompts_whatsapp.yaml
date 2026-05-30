@@ -1,0 +1,22 @@
+# Mensajes del agente WhatsApp FACCMA Tenis
+# Estos textos son los mensajes fijos del bot (no el system prompt de Gemini,
+# que se construye dinámicamente en brain.py a partir de SYSTEM_PROMPT_DB).
+
+bienvenida: |
+  👋 ¡Hola! Soy el asistente de *FACCMA Tenis*.
+  Puedo contarte posiciones, resultados y fixtures del torneo.
+  ¿En qué te puedo ayudar?
+
+error: "❌ Ocurrió un error al procesar tu consulta. Intentá de nuevo en unos minutos."
+
+rate_limit: "⏳ Estás enviando mensajes muy rápido. Esperá un momento antes de continuar."
+
+limite_alcanzado: "⚠️ Alcanzaste el límite de consultas por hoy. Volvé mañana para seguir."
+
+# Texto que se agrega al SYSTEM_PROMPT_DB para adaptar las respuestas al canal WhatsApp
+whatsapp_addon: |
+  IMPORTANTE — Canal WhatsApp:
+  Respondé de forma BREVE y CONCISA (máximo 4-5 líneas por respuesta).
+  Evitá tablas largas y listas extensas; resumí lo más relevante.
+  No uses formato markdown avanzado.
+  En WhatsApp el asterisco *texto* forma negrita — usalo con moderación.

@@ -1,0 +1,1992 @@
+{
+  "torneos": [
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros Libre - Primera",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "CISSAB-B",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 16,
+          "dif_sets": 23,
+          "dif_games": 124
+        },
+        {
+          "pos": 2,
+          "equipo": "EL VENADO-A",
+          "pts": 13,
+          "pj": 8,
+          "pg": 5,
+          "pp": 3,
+          "sg": 14,
+          "dif_sets": 7,
+          "dif_games": 16
+        },
+        {
+          "pos": 3,
+          "equipo": "HACOAJ-C",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 16,
+          "dif_sets": 18,
+          "dif_games": 63
+        },
+        {
+          "pos": 4,
+          "equipo": "HEBRAICA-C",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 14,
+          "dif_sets": 13,
+          "dif_games": 35
+        },
+        {
+          "pos": 5,
+          "equipo": "HACOAJ-H",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 13,
+          "dif_sets": 10,
+          "dif_games": 37
+        },
+        {
+          "pos": 6,
+          "equipo": "COMUNIDAD AMIJAI-A",
+          "pts": 11,
+          "pj": 8,
+          "pg": 3,
+          "pp": 5,
+          "sg": 10,
+          "dif_sets": -9,
+          "dif_games": -27
+        },
+        {
+          "pos": 7,
+          "equipo": "HEBRAICA-P",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 9,
+          "dif_sets": -5,
+          "dif_games": -11
+        },
+        {
+          "pos": 8,
+          "equipo": "MACABI-F",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 5,
+          "dif_sets": -17,
+          "dif_games": -66
+        },
+        {
+          "pos": 9,
+          "equipo": "HACOAJ-CDC",
+          "pts": 6,
+          "pj": 8,
+          "pg": 0,
+          "pp": 8,
+          "sg": 2,
+          "dif_sets": -40,
+          "dif_games": -171
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 7174,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "HEBRAICA-P",
+          "visitante": "HACOAJ-C",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 7175,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "HACOAJ-H",
+          "visitante": "HEBRAICA-C",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 7176,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "MACABI-F",
+          "visitante": "CISSAB-B",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Damas Libre - Primera",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "MACABI B / MI REFUGIO-A",
+          "pts": 18,
+          "pj": 9,
+          "pg": 9,
+          "pp": 0,
+          "sg": 22,
+          "dif_sets": 33,
+          "dif_games": 139
+        },
+        {
+          "pos": 2,
+          "equipo": "HACOAJ-CDC",
+          "pts": 17,
+          "pj": 9,
+          "pg": 8,
+          "pp": 1,
+          "sg": 20,
+          "dif_sets": 25,
+          "dif_games": 95
+        },
+        {
+          "pos": 3,
+          "equipo": "SOSIEGO / VENADO-S",
+          "pts": 15,
+          "pj": 9,
+          "pg": 6,
+          "pp": 3,
+          "sg": 19,
+          "dif_sets": 20,
+          "dif_games": 78
+        },
+        {
+          "pos": 4,
+          "equipo": "CISSAB-E",
+          "pts": 15,
+          "pj": 9,
+          "pg": 6,
+          "pp": 3,
+          "sg": 17,
+          "dif_sets": 18,
+          "dif_games": 95
+        },
+        {
+          "pos": 5,
+          "equipo": "HEBRAICA-J",
+          "pts": 13,
+          "pj": 9,
+          "pg": 4,
+          "pp": 5,
+          "sg": 16,
+          "dif_sets": 13,
+          "dif_games": 39
+        },
+        {
+          "pos": 6,
+          "equipo": "LAMROTH-B",
+          "pts": 13,
+          "pj": 9,
+          "pg": 4,
+          "pp": 5,
+          "sg": 10,
+          "dif_sets": -16,
+          "dif_games": -44
+        },
+        {
+          "pos": 7,
+          "equipo": "LAMROTH-A",
+          "pts": 13,
+          "pj": 9,
+          "pg": 4,
+          "pp": 5,
+          "sg": 9,
+          "dif_sets": -20,
+          "dif_games": -89
+        },
+        {
+          "pos": 8,
+          "equipo": "MACABI-C",
+          "pts": 11,
+          "pj": 9,
+          "pg": 2,
+          "pp": 7,
+          "sg": 7,
+          "dif_sets": -25,
+          "dif_games": -98
+        },
+        {
+          "pos": 9,
+          "equipo": "HACOAJ-C",
+          "pts": 10,
+          "pj": 9,
+          "pg": 1,
+          "pp": 8,
+          "sg": 8,
+          "dif_sets": -23,
+          "dif_games": -107
+        },
+        {
+          "pos": 10,
+          "equipo": "HACOAJ-P",
+          "pts": 10,
+          "pj": 9,
+          "pg": 1,
+          "pp": 8,
+          "sg": 7,
+          "dif_sets": -25,
+          "dif_games": -108
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 8263,
+          "fecha": "09-06-2026",
+          "hora": "09:00",
+          "local": "MACABI B / MI REFUGIO-A",
+          "visitante": "CISSAB-E",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8264,
+          "fecha": "09-06-2026",
+          "hora": "11:00",
+          "local": "HACOAJ-CDC",
+          "visitante": "SOSIEGO / VENADO-S",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8266,
+          "fecha": "09-06-2026",
+          "hora": "11:00",
+          "local": "LAMROTH-A",
+          "visitante": "MACABI-C",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8265,
+          "fecha": "18-06-2026",
+          "hora": "09:30",
+          "local": "POR DEFINIR",
+          "visitante": "POR DEFINIR",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros Libre - Intermedia",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "EL SOSIEGO-A",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 16,
+          "dif_sets": 25,
+          "dif_games": 118
+        },
+        {
+          "pos": 2,
+          "equipo": "CSHA-G",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 13,
+          "dif_sets": 9,
+          "dif_games": 48
+        },
+        {
+          "pos": 3,
+          "equipo": "CISSAB-K",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 11,
+          "dif_sets": 0,
+          "dif_games": 3
+        },
+        {
+          "pos": 4,
+          "equipo": "MI REFUGIO-A",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 12,
+          "dif_sets": 6,
+          "dif_games": 26
+        },
+        {
+          "pos": 5,
+          "equipo": "MACABI-Q",
+          "pts": 10,
+          "pj": 8,
+          "pg": 2,
+          "pp": 6,
+          "sg": 10,
+          "dif_sets": -9,
+          "dif_games": -50
+        },
+        {
+          "pos": 6,
+          "equipo": "COMUNIDAD AMIJAI-B",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 9,
+          "dif_sets": -3,
+          "dif_games": -4
+        },
+        {
+          "pos": 7,
+          "equipo": "HEBRAICA-M",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 9,
+          "dif_sets": -9,
+          "dif_games": -51
+        },
+        {
+          "pos": 8,
+          "equipo": "CISSAB-D",
+          "pts": 9,
+          "pj": 7,
+          "pg": 2,
+          "pp": 5,
+          "sg": 8,
+          "dif_sets": -12,
+          "dif_games": -72
+        },
+        {
+          "pos": 9,
+          "equipo": "MACABI-J",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 8,
+          "dif_sets": -7,
+          "dif_games": -18
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 7209,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "CISSAB-D",
+          "visitante": "MI REFUGIO-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 7210,
+          "fecha": "30-05-2026",
+          "hora": "13:00",
+          "local": "COMUNIDAD AMIJAI-B",
+          "visitante": "EL SOSIEGO-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "SB5 SPORTS MILBERG",
+          "partidos": []
+        },
+        {
+          "idSerie": 7211,
+          "fecha": "30-05-2026",
+          "hora": "10:00",
+          "local": "CSHA-G",
+          "visitante": "HEBRAICA-M",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 7212,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "MACABI-J",
+          "visitante": "CISSAB-K",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Damas Libre - Intermedia",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "HACOAJ-E",
+          "pts": 14,
+          "pj": 8,
+          "pg": 6,
+          "pp": 2,
+          "sg": 18,
+          "dif_sets": 26,
+          "dif_games": 94
+        },
+        {
+          "pos": 2,
+          "equipo": "HACOAJ-Z",
+          "pts": 14,
+          "pj": 8,
+          "pg": 6,
+          "pp": 2,
+          "sg": 15,
+          "dif_sets": 14,
+          "dif_games": 61
+        },
+        {
+          "pos": 3,
+          "equipo": "CISSAB-M",
+          "pts": 14,
+          "pj": 8,
+          "pg": 6,
+          "pp": 2,
+          "sg": 13,
+          "dif_sets": 5,
+          "dif_games": 35
+        },
+        {
+          "pos": 4,
+          "equipo": "MIRAFLORES-A",
+          "pts": 13,
+          "pj": 8,
+          "pg": 5,
+          "pp": 3,
+          "sg": 12,
+          "dif_sets": -2,
+          "dif_games": -1
+        },
+        {
+          "pos": 5,
+          "equipo": "EL VENADO-B",
+          "pts": 12,
+          "pj": 8,
+          "pg": 4,
+          "pp": 4,
+          "sg": 13,
+          "dif_sets": 5,
+          "dif_games": 2
+        },
+        {
+          "pos": 6,
+          "equipo": "CSHA-A",
+          "pts": 12,
+          "pj": 8,
+          "pg": 4,
+          "pp": 4,
+          "sg": 12,
+          "dif_sets": -2,
+          "dif_games": -23
+        },
+        {
+          "pos": 7,
+          "equipo": "LAMROTH-M",
+          "pts": 10,
+          "pj": 8,
+          "pg": 2,
+          "pp": 6,
+          "sg": 9,
+          "dif_sets": -12,
+          "dif_games": -28
+        },
+        {
+          "pos": 8,
+          "equipo": "HACOAJ-M",
+          "pts": 10,
+          "pj": 8,
+          "pg": 2,
+          "pp": 6,
+          "sg": 9,
+          "dif_sets": -13,
+          "dif_games": -50
+        },
+        {
+          "pos": 9,
+          "equipo": "CISSAB-F",
+          "pts": 9,
+          "pj": 8,
+          "pg": 1,
+          "pp": 7,
+          "sg": 7,
+          "dif_sets": -21,
+          "dif_games": -90
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 8268,
+          "fecha": "09-06-2026",
+          "hora": "09:30",
+          "local": "CISSAB-M",
+          "visitante": "MIRAFLORES-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8269,
+          "fecha": "09-06-2026",
+          "hora": "11:30",
+          "local": "CSHA-A",
+          "visitante": "LAMROTH-M",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8267,
+          "fecha": "18-06-2026",
+          "hora": "09:30",
+          "local": "HACOAJ-E",
+          "visitante": "HACOAJ-Z",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros Libre - Segunda",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "HACOAJ-D",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 16,
+          "dif_sets": 19,
+          "dif_games": 66
+        },
+        {
+          "pos": 2,
+          "equipo": "EL VENADO-B",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 13,
+          "dif_sets": 12,
+          "dif_games": 39
+        },
+        {
+          "pos": 3,
+          "equipo": "MACABI-D",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 13,
+          "dif_sets": 7,
+          "dif_games": 8
+        },
+        {
+          "pos": 4,
+          "equipo": "HEBRAICA-E",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 12,
+          "dif_sets": 5,
+          "dif_games": 27
+        },
+        {
+          "pos": 5,
+          "equipo": "HACOAJ-B",
+          "pts": 12,
+          "pj": 8,
+          "pg": 4,
+          "pp": 4,
+          "sg": 12,
+          "dif_sets": 0,
+          "dif_games": 0
+        },
+        {
+          "pos": 6,
+          "equipo": "EL SOSIEGO-C",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 11,
+          "dif_sets": 1,
+          "dif_games": -11
+        },
+        {
+          "pos": 7,
+          "equipo": "CISSAB-E",
+          "pts": 9,
+          "pj": 7,
+          "pg": 2,
+          "pp": 5,
+          "sg": 8,
+          "dif_sets": -9,
+          "dif_games": -19
+        },
+        {
+          "pos": 8,
+          "equipo": "HEBRAICA-L",
+          "pts": 9,
+          "pj": 7,
+          "pg": 2,
+          "pp": 5,
+          "sg": 5,
+          "dif_sets": -18,
+          "dif_games": -67
+        },
+        {
+          "pos": 9,
+          "equipo": "CSHA-K",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 6,
+          "dif_sets": -17,
+          "dif_games": -43
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 7245,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "HEBRAICA-L",
+          "visitante": "CSHA-K",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 7246,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "EL SOSIEGO-C",
+          "visitante": "CISSAB-E",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 7247,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "EL VENADO-B",
+          "visitante": "MACABI-D",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 7248,
+          "fecha": "30-05-2026",
+          "hora": "10:30",
+          "local": "HACOAJ-D",
+          "visitante": "HEBRAICA-E",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Damas Libre - Segunda",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "HEBRAICA-B",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 16,
+          "dif_sets": 21,
+          "dif_games": 91
+        },
+        {
+          "pos": 2,
+          "equipo": "CSHA-D",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 12,
+          "dif_sets": 6,
+          "dif_games": 28
+        },
+        {
+          "pos": 3,
+          "equipo": "CSHA-C",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 12,
+          "dif_sets": 9,
+          "dif_games": 39
+        },
+        {
+          "pos": 4,
+          "equipo": "HACOAJ-R",
+          "pts": 11,
+          "pj": 8,
+          "pg": 3,
+          "pp": 5,
+          "sg": 10,
+          "dif_sets": -7,
+          "dif_games": -29
+        },
+        {
+          "pos": 5,
+          "equipo": "CISSAB-G",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 11,
+          "dif_sets": 4,
+          "dif_games": 7
+        },
+        {
+          "pos": 6,
+          "equipo": "LA MARTONA-B",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 10,
+          "dif_sets": -5,
+          "dif_games": 10
+        },
+        {
+          "pos": 7,
+          "equipo": "MACABI-A",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 10,
+          "dif_sets": -12,
+          "dif_games": -41
+        },
+        {
+          "pos": 8,
+          "equipo": "CISSAB-A",
+          "pts": 9,
+          "pj": 7,
+          "pg": 2,
+          "pp": 5,
+          "sg": 10,
+          "dif_sets": -5,
+          "dif_games": -29
+        },
+        {
+          "pos": 9,
+          "equipo": "HEBRAICA-A",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 5,
+          "dif_sets": -21,
+          "dif_games": -76
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 7442,
+          "fecha": "03-06-2026",
+          "hora": "09:00",
+          "local": "LA MARTONA-B",
+          "visitante": "CISSAB-G",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "CIRSE",
+          "partidos": []
+        },
+        {
+          "idSerie": 7443,
+          "fecha": "03-06-2026",
+          "hora": "11:00",
+          "local": "CISSAB-A",
+          "visitante": "HEBRAICA-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "CIRSE",
+          "partidos": []
+        },
+        {
+          "idSerie": 7444,
+          "fecha": "03-06-2026",
+          "hora": "11:00",
+          "local": "HEBRAICA-B",
+          "visitante": "CSHA-C",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "COMUNICACIONES",
+          "partidos": []
+        },
+        {
+          "idSerie": 7445,
+          "fecha": "03-06-2026",
+          "hora": "09:00",
+          "local": "CSHA-D",
+          "visitante": "MACABI-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "COMUNICACIONES",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Damas Libre - Tercera A",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "LAMROTH-D",
+          "pts": 15,
+          "pj": 8,
+          "pg": 7,
+          "pp": 1,
+          "sg": 16,
+          "dif_sets": 15,
+          "dif_games": 62
+        },
+        {
+          "pos": 2,
+          "equipo": "HACOAJ-A",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 14,
+          "dif_sets": 10,
+          "dif_games": 23
+        },
+        {
+          "pos": 3,
+          "equipo": "EL SOSIEGO-A",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 13,
+          "dif_sets": 11,
+          "dif_games": 24
+        },
+        {
+          "pos": 4,
+          "equipo": "HACOAJ-T",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 13,
+          "dif_sets": 9,
+          "dif_games": 29
+        },
+        {
+          "pos": 5,
+          "equipo": "HEBRAICA-C",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 9,
+          "dif_sets": -4,
+          "dif_games": -26
+        },
+        {
+          "pos": 6,
+          "equipo": "CISSAB-D",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 9,
+          "dif_sets": -6,
+          "dif_games": -18
+        },
+        {
+          "pos": 7,
+          "equipo": "MACABI-N",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 8,
+          "dif_sets": -13,
+          "dif_games": -33
+        },
+        {
+          "pos": 8,
+          "equipo": "CSIS-A",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 7,
+          "dif_sets": -15,
+          "dif_games": -19
+        },
+        {
+          "pos": 9,
+          "equipo": "HEBRAICA-D",
+          "pts": 7,
+          "pj": 7,
+          "pg": 0,
+          "pp": 7,
+          "sg": 7,
+          "dif_sets": -15,
+          "dif_games": -42
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 7478,
+          "fecha": "03-06-2026",
+          "hora": "09:00",
+          "local": "MACABI-N",
+          "visitante": "CSIS-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "EL ABIERTO",
+          "partidos": []
+        },
+        {
+          "idSerie": 7479,
+          "fecha": "03-06-2026",
+          "hora": "09:30",
+          "local": "CISSAB-D",
+          "visitante": "HEBRAICA-D",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "HACOAJ",
+          "partidos": []
+        },
+        {
+          "idSerie": 7480,
+          "fecha": "03-06-2026",
+          "hora": "11:00",
+          "local": "HEBRAICA-C",
+          "visitante": "HACOAJ-T",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "EL ABIERTO",
+          "partidos": []
+        },
+        {
+          "idSerie": 7481,
+          "fecha": "03-06-2026",
+          "hora": "11:00",
+          "local": "HACOAJ-A",
+          "visitante": "EL SOSIEGO-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "REPROGRAMADO",
+          "sede": "EL ABIERTO",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros Libre - Tercera",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "GUESHER-G",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 18,
+          "dif_sets": 24,
+          "dif_games": 64
+        },
+        {
+          "pos": 2,
+          "equipo": "MACABI-U",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 12,
+          "dif_sets": 5,
+          "dif_games": 16
+        },
+        {
+          "pos": 3,
+          "equipo": "CISSAB-C",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 11,
+          "dif_sets": 4,
+          "dif_games": 23
+        },
+        {
+          "pos": 4,
+          "equipo": "HACOAJ-P",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 8,
+          "dif_sets": -4,
+          "dif_games": 11
+        },
+        {
+          "pos": 5,
+          "equipo": "HEBRAICA-B",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 10,
+          "dif_sets": -4,
+          "dif_games": -23
+        },
+        {
+          "pos": 6,
+          "equipo": "HACOAJ-V",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 9,
+          "dif_sets": -3,
+          "dif_games": 0
+        },
+        {
+          "pos": 7,
+          "equipo": "EL SOSIEGO-B",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 9,
+          "dif_sets": -8,
+          "dif_games": -59
+        },
+        {
+          "pos": 8,
+          "equipo": "HACOAJ-A",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 7,
+          "dif_sets": -14,
+          "dif_games": -32
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 8256,
+          "fecha": "30-05-2026",
+          "hora": "10:30",
+          "local": "GUESHER-G",
+          "visitante": "HACOAJ-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8257,
+          "fecha": "30-05-2026",
+          "hora": "14:00",
+          "local": "HACOAJ-P",
+          "visitante": "HEBRAICA-B",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8258,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "CISSAB-C",
+          "visitante": "HACOAJ-V",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8259,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "MACABI-U",
+          "visitante": "EL SOSIEGO-B",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Damas Libre - Tercera B",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "MI REFUGIO-A",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 17,
+          "dif_sets": 21,
+          "dif_games": 77
+        },
+        {
+          "pos": 2,
+          "equipo": "CSHA-B",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 16,
+          "dif_sets": 21,
+          "dif_games": 72
+        },
+        {
+          "pos": 3,
+          "equipo": "HACOAJ-B",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 11,
+          "dif_sets": 5,
+          "dif_games": 7
+        },
+        {
+          "pos": 4,
+          "equipo": "CSHA-H",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 10,
+          "dif_sets": -1,
+          "dif_games": -3
+        },
+        {
+          "pos": 5,
+          "equipo": "MACABI-O",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 10,
+          "dif_sets": -3,
+          "dif_games": -1
+        },
+        {
+          "pos": 6,
+          "equipo": "CISSAB-I",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 8,
+          "dif_sets": -11,
+          "dif_games": -50
+        },
+        {
+          "pos": 7,
+          "equipo": "CISSAB-N",
+          "pts": 9,
+          "pj": 7,
+          "pg": 2,
+          "pp": 5,
+          "sg": 7,
+          "dif_sets": -13,
+          "dif_games": -42
+        },
+        {
+          "pos": 8,
+          "equipo": "CISSAB-C",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 5,
+          "dif_sets": -19,
+          "dif_games": -60
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 8205,
+          "fecha": "28-05-2026",
+          "hora": "09:30",
+          "local": "MI REFUGIO-A",
+          "visitante": "CISSAB-C",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8206,
+          "fecha": "28-05-2026",
+          "hora": "09:30",
+          "local": "CSHA-H",
+          "visitante": "MACABI-O",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8207,
+          "fecha": "28-05-2026",
+          "hora": "11:30",
+          "local": "HACOAJ-B",
+          "visitante": "CISSAB-I",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8208,
+          "fecha": "28-05-2026",
+          "hora": "11:30",
+          "local": "CSHA-B",
+          "visitante": "CISSAB-N",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Damas Libre - Tercera C1",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "EL SOSIEGO-N",
+          "pts": 14,
+          "pj": 7,
+          "pg": 7,
+          "pp": 0,
+          "sg": 18,
+          "dif_sets": 30,
+          "dif_games": 143
+        },
+        {
+          "pos": 2,
+          "equipo": "CISSAB-O",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 14,
+          "dif_sets": 12,
+          "dif_games": 53
+        },
+        {
+          "pos": 3,
+          "equipo": "CSHA-E",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 9,
+          "dif_sets": -6,
+          "dif_games": -27
+        },
+        {
+          "pos": 4,
+          "equipo": "CSHA-F",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 11,
+          "dif_sets": -2,
+          "dif_games": -21
+        },
+        {
+          "pos": 5,
+          "equipo": "HACOAJ-D",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 10,
+          "dif_sets": 0,
+          "dif_games": -1
+        },
+        {
+          "pos": 6,
+          "equipo": "HACOAJ-G",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 10,
+          "dif_sets": -1,
+          "dif_games": 8
+        },
+        {
+          "pos": 7,
+          "equipo": "MI REFUGIO-B",
+          "pts": 7,
+          "pj": 7,
+          "pg": 0,
+          "pp": 7,
+          "sg": 6,
+          "dif_sets": -13,
+          "dif_games": -57
+        },
+        {
+          "pos": 8,
+          "equipo": "MIRAFLORES-B",
+          "pts": 7,
+          "pj": 7,
+          "pg": 2,
+          "pp": 5,
+          "sg": 6,
+          "dif_sets": -20,
+          "dif_games": -98
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 8212,
+          "fecha": "28-05-2026",
+          "hora": "09:00",
+          "local": "EL SOSIEGO-N",
+          "visitante": "MI REFUGIO-B",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8213,
+          "fecha": "28-05-2026",
+          "hora": "13:00",
+          "local": "CSHA-F",
+          "visitante": "HACOAJ-D",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8214,
+          "fecha": "28-05-2026",
+          "hora": "11:00",
+          "local": "CSHA-E",
+          "visitante": "HACOAJ-G",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8215,
+          "fecha": "28-05-2026",
+          "hora": "11:00",
+          "local": "CISSAB-O",
+          "visitante": "MIRAFLORES-B",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Damas Libre - Tercera C2",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "LAMROTH-E",
+          "pts": 14,
+          "pj": 7,
+          "pg": 7,
+          "pp": 0,
+          "sg": 18,
+          "dif_sets": 32,
+          "dif_games": 136
+        },
+        {
+          "pos": 2,
+          "equipo": "EL VENADO-M",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 15,
+          "dif_sets": 14,
+          "dif_games": 66
+        },
+        {
+          "pos": 3,
+          "equipo": "HEBRAICA-E",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 12,
+          "dif_sets": 6,
+          "dif_games": 32
+        },
+        {
+          "pos": 4,
+          "equipo": "CISSAB-S",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 15,
+          "dif_sets": 16,
+          "dif_games": 69
+        },
+        {
+          "pos": 5,
+          "equipo": "CSHA-I",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 9,
+          "dif_sets": -3,
+          "dif_games": 0
+        },
+        {
+          "pos": 6,
+          "equipo": "CISSAB-P",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 6,
+          "dif_sets": -19,
+          "dif_games": -113
+        },
+        {
+          "pos": 7,
+          "equipo": "CISSAB-Q",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 5,
+          "dif_sets": -23,
+          "dif_games": -100
+        },
+        {
+          "pos": 8,
+          "equipo": "CISSAB-T",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 4,
+          "dif_sets": -23,
+          "dif_games": -90
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 8219,
+          "fecha": "28-05-2026",
+          "hora": "09:00",
+          "local": "LAMROTH-E",
+          "visitante": "CISSAB-T",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8220,
+          "fecha": "28-05-2026",
+          "hora": "11:00",
+          "local": "CISSAB-S",
+          "visitante": "CSHA-I",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8221,
+          "fecha": "28-05-2026",
+          "hora": "11:00",
+          "local": "HEBRAICA-E",
+          "visitante": "CISSAB-P",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8222,
+          "fecha": "28-05-2026",
+          "hora": "09:00",
+          "local": "EL VENADO-M",
+          "visitante": "CISSAB-Q",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros +48 - A",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "LAMROTH-A",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 16,
+          "dif_sets": 20,
+          "dif_games": 54
+        },
+        {
+          "pos": 2,
+          "equipo": "BIALIK-C SR 1",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 12,
+          "dif_sets": 1,
+          "dif_games": -1
+        },
+        {
+          "pos": 3,
+          "equipo": "CISSAB-J",
+          "pts": 12,
+          "pj": 7,
+          "pg": 5,
+          "pp": 2,
+          "sg": 14,
+          "dif_sets": 14,
+          "dif_games": 64
+        },
+        {
+          "pos": 4,
+          "equipo": "HEBRAICA-F",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 13,
+          "dif_sets": 8,
+          "dif_games": 18
+        },
+        {
+          "pos": 5,
+          "equipo": "CISSAB-L",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 12,
+          "dif_sets": 9,
+          "dif_games": 44
+        },
+        {
+          "pos": 6,
+          "equipo": "CISSAB-G",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 10,
+          "dif_sets": 0,
+          "dif_games": 21
+        },
+        {
+          "pos": 7,
+          "equipo": "MACABI-P",
+          "pts": 8,
+          "pj": 7,
+          "pg": 1,
+          "pp": 6,
+          "sg": 4,
+          "dif_sets": -24,
+          "dif_games": -86
+        },
+        {
+          "pos": 8,
+          "equipo": "CSIS-A",
+          "pts": 7,
+          "pj": 7,
+          "pg": 0,
+          "pp": 7,
+          "sg": 3,
+          "dif_sets": -28,
+          "dif_games": -114
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 8242,
+          "fecha": "30-05-2026",
+          "hora": "10:00",
+          "local": "LAMROTH-A",
+          "visitante": "CSIS-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8243,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "HEBRAICA-F",
+          "visitante": "CISSAB-L",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8244,
+          "fecha": "30-05-2026",
+          "hora": "14:00",
+          "local": "BIALIK-C",
+          "visitante": "CISSAB-G",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8245,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "CISSAB-J",
+          "visitante": "MACABI-P",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros +48 - B",
+      "fecha_scraped": "28-05-2026",
+      "standings": [
+        {
+          "pos": 1,
+          "equipo": "MACABI-M",
+          "pts": 14,
+          "pj": 7,
+          "pg": 7,
+          "pp": 0,
+          "sg": 18,
+          "dif_sets": 30,
+          "dif_games": 140
+        },
+        {
+          "pos": 2,
+          "equipo": "HEBRAICA-G",
+          "pts": 13,
+          "pj": 7,
+          "pg": 6,
+          "pp": 1,
+          "sg": 15,
+          "dif_sets": 14,
+          "dif_games": 29
+        },
+        {
+          "pos": 3,
+          "equipo": "EL SOSIEGO-D",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 12,
+          "dif_sets": 7,
+          "dif_games": 12
+        },
+        {
+          "pos": 4,
+          "equipo": "HACOAJ-Q",
+          "pts": 11,
+          "pj": 7,
+          "pg": 4,
+          "pp": 3,
+          "sg": 10,
+          "dif_sets": -2,
+          "dif_games": 0
+        },
+        {
+          "pos": 5,
+          "equipo": "CISSAB-F",
+          "pts": 10,
+          "pj": 7,
+          "pg": 3,
+          "pp": 4,
+          "sg": 10,
+          "dif_sets": -6,
+          "dif_games": -16
+        },
+        {
+          "pos": 6,
+          "equipo": "CISSAB-Q",
+          "pts": 9,
+          "pj": 7,
+          "pg": 2,
+          "pp": 5,
+          "sg": 8,
+          "dif_sets": -8,
+          "dif_games": -26
+        },
+        {
+          "pos": 7,
+          "equipo": "BARKOJBA-B",
+          "pts": 9,
+          "pj": 7,
+          "pg": 2,
+          "pp": 5,
+          "sg": 7,
+          "dif_sets": -13,
+          "dif_games": -61
+        },
+        {
+          "pos": 8,
+          "equipo": "BIALIK-A",
+          "pts": 7,
+          "pj": 7,
+          "pg": 0,
+          "pp": 7,
+          "sg": 4,
+          "dif_sets": -22,
+          "dif_games": -78
+        }
+      ],
+      "series": [
+        {
+          "idSerie": 8249,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "MACABI-M",
+          "visitante": "BIALIK-A",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8250,
+          "fecha": "30-05-2026",
+          "hora": "12:30",
+          "local": "HACOAJ-Q",
+          "visitante": "CISSAB-F",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8251,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "EL SOSIEGO-D",
+          "visitante": "CISSAB-Q",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        },
+        {
+          "idSerie": 8252,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "HEBRAICA-G",
+          "visitante": "BARKOJBA-B",
+          "score_local": 0,
+          "score_visitante": 0,
+          "estado": "PENDIENTE",
+          "sede": "",
+          "partidos": []
+        }
+      ]
+    }
+  ]
+}
