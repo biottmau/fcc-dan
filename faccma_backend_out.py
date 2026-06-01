@@ -566,8 +566,10 @@ def get_resultados(categoria: Optional[str] = None, equipo: Optional[str] = None
         rows = query(
             """
             SELECT t.nombre AS torneo, c.nombre AS categoria,
-                   p.fecha, p.local_nombre, p.sets_local,
-                   p.sets_visitante, p.visitante_nombre, p.score_text, p.estado
+                   p.fecha, p.hora, p.sede,
+                   p.local_nombre AS local, p.sets_local AS score_local,
+                   p.sets_visitante AS score_visitante, p.visitante_nombre AS visitante,
+                   p.score_text, p.estado
             FROM partidos p
             JOIN categorias c ON p.categoria_id = c.categoria_id
             JOIN torneos t ON c.torneo_id = t.torneo_id
@@ -582,8 +584,10 @@ def get_resultados(categoria: Optional[str] = None, equipo: Optional[str] = None
         rows = query(
             """
             SELECT t.nombre AS torneo, c.nombre AS categoria,
-                   p.fecha, p.local_nombre, p.sets_local,
-                   p.sets_visitante, p.visitante_nombre, p.score_text, p.estado
+                   p.fecha, p.hora, p.sede,
+                   p.local_nombre AS local, p.sets_local AS score_local,
+                   p.sets_visitante AS score_visitante, p.visitante_nombre AS visitante,
+                   p.score_text, p.estado
             FROM partidos p
             JOIN categorias c ON p.categoria_id = c.categoria_id
             JOIN torneos t ON c.torneo_id = t.torneo_id
@@ -598,8 +602,10 @@ def get_resultados(categoria: Optional[str] = None, equipo: Optional[str] = None
         rows = query(
             """
             SELECT t.nombre AS torneo, c.nombre AS categoria,
-                   p.fecha, p.local_nombre, p.sets_local,
-                   p.sets_visitante, p.visitante_nombre, p.score_text, p.estado
+                   p.fecha, p.hora, p.sede,
+                   p.local_nombre AS local, p.sets_local AS score_local,
+                   p.sets_visitante AS score_visitante, p.visitante_nombre AS visitante,
+                   p.score_text, p.estado
             FROM partidos p
             JOIN categorias c ON p.categoria_id = c.categoria_id
             JOIN torneos t ON c.torneo_id = t.torneo_id

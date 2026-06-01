@@ -206,7 +206,7 @@ def load_entry(cur, entry: dict, stats: dict):
 
         score_local  = serie.get("score_local")  or 0
         score_visita = serie.get("score_visitante") or 0
-        if estado == "CONFIRMADO" and (score_local or score_visita):
+        if estado in ("CONFIRMADO", "A CONFIRMAR") and (score_local or score_visita):
             score_text = f"{score_local}-{score_visita}"
             sets_l, sets_v = score_local, score_visita
         else:

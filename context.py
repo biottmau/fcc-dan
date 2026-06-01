@@ -3,9 +3,24 @@
 # ============================================================
 
 import json
+import os
 import re
 
 from database import USE_DB, load_json_data, query
+
+# ------------------------------------------------------------
+# REGLAMENTO ITF — cargado desde archivo externo
+# ------------------------------------------------------------
+_ITF_RULES_FILE = os.path.join(os.path.dirname(__file__), "itf_reglas_tenis_2026.txt")
+
+def _load_itf_rules() -> str:
+    try:
+        with open(_ITF_RULES_FILE, encoding="utf-8") as f:
+            return f.read()
+    except FileNotFoundError:
+        return ""
+
+ITF_RULES_TEXT = _load_itf_rules()
 
 # ------------------------------------------------------------
 # SYSTEM PROMPT
@@ -182,10 +197,18 @@ Denuncias por mala formación: dentro de las 48 horas hábiles del partido. FACC
 COMPORTAMIENTO DEL ASISTENTE
 =================================================================
 
-PREGUNTAS SOBRE REGLAMENTO:
+PREGUNTAS SOBRE REGLAMENTO FACCMA:
   Respondé directamente con el reglamento de arriba sin consultar la base de datos.
   Si la situación no está contemplada, indicar que el Comité Organizador resuelve lo no previsto
   y sugerir contactar tenis.padel@faccma.org.
+
+PREGUNTAS SOBRE REGLAS GENERALES DEL TENIS (ITF):
+  Si el usuario pregunta sobre reglas del tenis en general (dimensiones de cancha, red, pelota,
+  forma de puntuar, tie-break, let, fault, doble falta, código de conducta, etc.),
+  respondé EXCLUSIVAMENTE basándote en el documento ITF más abajo.
+  NUNCA inventes ni supongas reglas. Si la respuesta no está en ese documento, decí
+  "No encontré esa regla en el Reglamento ITF 2026".
+  El reglamento FACCMA prevalece sobre el ITF cuando hay diferencias específicas de la liga.
 
 VALIDACIÓN DE FORMACIONES:
   Aplicar el sistema de sumatoria (Art. 8) con los datos que provea el usuario.
@@ -201,6 +224,22 @@ Cuando el usuario mencione un equipo sin especificar categoria (Caballeros o Dam
   - 0 resultados: buscar con ILIKE '%NOMBRE%' más genérico.
   - Mas de 1 resultado: listar las categorias encontradas y preguntar al usuario cual le interesa. NO responder con datos hasta recibir la aclaracion.
   Si el usuario ya especifico la categoria en su pregunta, omitir este paso.
+"""
+
+# Agregar reglamento ITF al final del SYSTEM_PROMPT
+if ITF_RULES_TEXT:
+    SYSTEM_PROMPT += f"""
+
+=================================================================
+REGLAMENTO OFICIAL ITF 2026 — REGLAS DEL TENIS
+(Solo para consultas sobre reglas generales del deporte)
+=================================================================
+
+{ITF_RULES_TEXT}
+
+=================================================================
+FIN DEL REGLAMENTO ITF
+=================================================================
 """
 
 # ------------------------------------------------------------
@@ -270,6 +309,11 @@ partidos_individuales(id PK, id_serie INTEGER,
      WHERE pi.torneo ILIKE '%%Apertura 2026%%'  — o por año: WHERE pi.anio = 2026
   !! COBERTURA: solo ~26%% de los partidos en la tabla 'partidos' tienen registros en partidos_individuales.
      Si no hay datos individuales, no significa que el partido no exista — puede que no estén cargados aún.
+  !! ULTIMO PARTIDO DE UN JUGADOR: SIEMPRE responder con la fecha del último registro en partidos_individuales
+     Y aclarar explícitamente: "Este es el último partido con datos individuales cargados. Es posible que
+     haya jugado en fechas más recientes si su equipo jugó, pero no tenemos el detalle individual de esas series."
+     NUNCA afirmar que jugó en una fecha si no hay registro en partidos_individuales para ese jugador en esa fecha.
+     NUNCA inferir que jugó solo porque su equipo jugó ese día.
   !! NOMBRES DE CATEGORÍA: en partidos_individuales del A2026, categoria puede ser 'Caballeros Libre'
      o 'Damas Libre' (SIN "- Primera" etc.), que NO coincide con los nombres en la tabla categorias.
      Para buscar todos los partidos individuales de una categoría, usar ILIKE:

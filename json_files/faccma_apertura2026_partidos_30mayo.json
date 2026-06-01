@@ -1,0 +1,921 @@
+{
+  "torneos": [
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros Libre - Primera",
+      "fecha_scraped": "30-05-2026",
+      "standings": [],
+      "series": [
+        {
+          "idSerie": 7174,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "HEBRAICA-P",
+          "visitante": "HACOAJ-C",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "SOUSS, F.",
+              "visitante": "TUREK, F.",
+              "score": "6-3, 6-1",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "FARJI, A. / GANOPOLSKY, D.",
+              "visitante": "SACERDOTI, R. / BOTANA, D.",
+              "score": "6-1, 6-4",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "KEMPER, D. / KOGUTEK, A.",
+              "visitante": "SCHIJVARG, M. / HIRSCH, G.",
+              "score": "7-6, 5-7, 7-6 (10-8)",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 7175,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "HACOAJ-H",
+          "visitante": "HEBRAICA-C",
+          "score_local": 1,
+          "score_visitante": 2,
+          "estado": "CONFIRMADO",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "SEGOVIA, S.",
+              "visitante": "PELTZ, A.",
+              "score": "6-0, 6-1",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "MILRUD, M. / PESTCHANKER, U.",
+              "visitante": "STERMAN, R. / SCALELLA PEINETTI, P.",
+              "score": "4-6, 6-3, 7-6 (10-8)",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "POPOVSKY, M. / WAJNCYMER, P.",
+              "visitante": "WEISSTAUB CABULI, A. / CASENAVE, L.",
+              "score": "6-3, 6-2",
+              "ganador": "V",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 7176,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "MACABI-F",
+          "visitante": "CISSAB-B",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "WALITZKY, N.",
+              "visitante": "KRIVULIN, E.",
+              "score": "6-0, 6-0",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "WALITZKY, G. / PINCO, A.",
+              "visitante": "CHAIA, D. / BLUVOL, E.",
+              "score": "6-2, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "KUPERMAN, G. / EPELBAUM, G.",
+              "visitante": "NAIMAN, D. / SIRCOVICI, M.",
+              "score": "7-5, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros Libre - Intermedia",
+      "fecha_scraped": "30-05-2026",
+      "standings": [],
+      "series": [
+        {
+          "idSerie": 7209,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "CISSAB-D",
+          "visitante": "MI REFUGIO-A",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "CONFIRMADO",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "SCHADAN, A.",
+              "visitante": "HIRSCH, N.",
+              "score": "6-4, 6-1",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "LIPSER, A. / ARCUSCHIN, M.",
+              "visitante": "SAWICKI, A. / GLANCSZPIGIEL, B.",
+              "score": "6-3, 2-3",
+              "ganador": "V",
+              "estado": "W.O. L"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "SZTAJN, D. / ALTER, F.",
+              "visitante": "GLOT, E. / SAWICKI, A.",
+              "score": "6-2, 7-5",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 7210,
+          "fecha": "30-05-2026",
+          "hora": "13:00",
+          "local": "COMUNIDAD AMIJAI-B",
+          "visitante": "EL SOSIEGO-A",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "--",
+              "visitante": "--",
+              "score": "6-0, 6-0",
+              "ganador": "L",
+              "estado": "W.O. V"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "DREIZZEN, A. / STARYFURMAN, I.",
+              "visitante": "ALVAREZ, G. / BIELOPOLSKY, M.",
+              "score": "6-1, 6-3",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "SIGAL, J. / COTTON, L.",
+              "visitante": "SOLOWIEICZYK, F. / ABAS, D.",
+              "score": "6-1, 6-4",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 7211,
+          "fecha": "30-05-2026",
+          "hora": "10:00",
+          "local": "CSHA-G",
+          "visitante": "HEBRAICA-M",
+          "score_local": 3,
+          "score_visitante": 0,
+          "estado": "CONFIRMADO",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "BORENSZTEJN, A.",
+              "visitante": "KOPELOWICZ, A.",
+              "score": "7-6, 6-7, 7-6 (10-3)",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "DAHAB, F. / SAFDIE, T.",
+              "visitante": "VANDSBURGER, D. / MARIAS, M.",
+              "score": "6-2, 6-3",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "GOLDSTEIN, M. / BTESH, M.",
+              "visitante": "NAHUM, H. / ITCOVICI, N.",
+              "score": "6-2, 6-7, 7-6 (10-2)",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 7212,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "MACABI-J",
+          "visitante": "CISSAB-K",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "CONFIRMADO",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "KOLODNY, D.",
+              "visitante": "DREIZZEN, D.",
+              "score": "6-1, 6-0",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "EDENBURG, D. / BEHAR, L.",
+              "visitante": "BLUVOL, G. / LABER, A.",
+              "score": "6-2, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "NUDELMAN, H. / GROSHAUS, M.",
+              "visitante": "BRENER, J. / SAAD, D.",
+              "score": "6-1, 6-0",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros Libre - Segunda",
+      "fecha_scraped": "30-05-2026",
+      "standings": [],
+      "series": [
+        {
+          "idSerie": 7245,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "HEBRAICA-L",
+          "visitante": "CSHA-K",
+          "score_local": 0,
+          "score_visitante": 3,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "COHEN SABBAN, G.",
+              "visitante": "ESCANDARANI, K.",
+              "score": "6-3, 6-3",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "ARDITTI, F. / MICHANIE, N.",
+              "visitante": "ATTAR, M. / JOLI, M.",
+              "score": "6-1, 6-2",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "KRELL, D. / GURFINKEL, G.",
+              "visitante": "DAHAB, N. / ALFIE, I.",
+              "score": "7-6, 6-2",
+              "ganador": "V",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 7246,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "EL SOSIEGO-C",
+          "visitante": "CISSAB-E",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "CONFIRMADO",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "SARFATIS, A.",
+              "visitante": "SZNAJDERHAUS, D.",
+              "score": "7-6, 6-0",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "KOHEN, D. / FERNANDEZ, M.",
+              "visitante": "JUSID, L. / MAKLER, D.",
+              "score": "6-1, 6-3",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "TUMENE, D. / BAREDES, A.",
+              "visitante": "LIPSER, D. / NACCACHE, D.",
+              "score": "6-7, 6-3, 7-6 (10-6)",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 7247,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "EL VENADO-B",
+          "visitante": "MACABI-D",
+          "score_local": 3,
+          "score_visitante": 0,
+          "estado": "CONFIRMADO",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "YABES, G.",
+              "visitante": "ESSES, M.",
+              "score": "6-2, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "KVETCHER, A. / MINIAN, R.",
+              "visitante": "FORSCHER, A. / WASSER, N.",
+              "score": "7-5, 6-0",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "SAKAL, K. / MIZRAHI, R.",
+              "visitante": "MASKIN, D. / LEVIN, N.",
+              "score": "6-1, 7-6",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 7248,
+          "fecha": "30-05-2026",
+          "hora": "10:30",
+          "local": "HACOAJ-D",
+          "visitante": "HEBRAICA-E",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "GUTMAN, M.",
+              "visitante": "OVSEJEVICH, D.",
+              "score": "6-2, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "SPOLSKI, E. / SUAYA, A.",
+              "visitante": "RAJMILOVICH, H. / BLAUSTEIN, S.",
+              "score": "6-2, 6-1",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "GROSZ, A. / CHIRO TARRAB, C.",
+              "visitante": "DROBLAS, R. / KESEL, F.",
+              "score": "6-4, 6-4",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros Libre - Tercera",
+      "fecha_scraped": "30-05-2026",
+      "standings": [],
+      "series": [
+        {
+          "idSerie": 8256,
+          "fecha": "30-05-2026",
+          "hora": "10:30",
+          "local": "GUESHER-G",
+          "visitante": "HACOAJ-A",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "HEFFES, H.",
+              "visitante": "APELBAUM, R.",
+              "score": "6-0, 6-0",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "VIÑAS, P. / CARCACHA, G.",
+              "visitante": "CRESPO, M. / STRAUSS, R.",
+              "score": "6-0, 6-0",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "GARCIA, G. / VIÑAS, J.",
+              "visitante": "INDIJ, D. / ALEANDRI, F.",
+              "score": "6-2, 6-2",
+              "ganador": "V",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 8257,
+          "fecha": "30-05-2026",
+          "hora": "14:00",
+          "local": "HACOAJ-P",
+          "visitante": "HEBRAICA-B",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "HOLCMAN, D.",
+              "visitante": "RUBEL, G.",
+              "score": "6-2, 6-3",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "GRINBERG, E. / REIZELMAN, G.",
+              "visitante": "RUBAJA, A. / PIENIAZEK, L.",
+              "score": "7-5, 4-6, 7-6 (10-4)",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "BOYKIER, H. / ROZENBLUM, A.",
+              "visitante": "JANIN, M. / TASAT, M.",
+              "score": "6-3, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 8258,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "CISSAB-C",
+          "visitante": "HACOAJ-V",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "ABIGADOR, M.",
+              "visitante": "DJMAL, A.",
+              "score": "6-4, 6-1",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "SEDLER, A. / GOLDSZMIDT, L.",
+              "visitante": "INDIJ, J. / SMOLKIN, D.",
+              "score": "6-1, 6-4",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "PELACH, D. / SCHADAN, S.",
+              "visitante": "BOHRER, E. / REPISO, J.",
+              "score": "6-2, 6-3",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 8259,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "MACABI-U",
+          "visitante": "EL SOSIEGO-B",
+          "score_local": 3,
+          "score_visitante": 0,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Single 1",
+              "local": "CHIJNER, D.",
+              "visitante": "HUBERMAN, L.",
+              "score": "6-1, 6-4",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 1",
+              "local": "MAN, J. / TRAVNIK, M.",
+              "visitante": "ROSENFELD, D. / COHEN KICHIK, H.",
+              "score": "6-4, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "BRONSTEIN, P. / SERJAI, J.",
+              "visitante": "ABAS, F. / NASSIMOFF, E.",
+              "score": "6-3, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros +48 - A",
+      "fecha_scraped": "30-05-2026",
+      "standings": [],
+      "series": [
+        {
+          "idSerie": 8242,
+          "fecha": "30-05-2026",
+          "hora": "10:00",
+          "local": "LAMROTH-A",
+          "visitante": "CSIS-A",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Doble 1",
+              "local": "BERDASCO, P. / DAIN, L.",
+              "visitante": "DORFMAN, S. / BORRELLI, M.",
+              "score": "6-4, 6-3",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "DAIN, A. / ALFIE, M.",
+              "visitante": "COHEN, A. / PISNOY, D.",
+              "score": "6-0, 6-0",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 3",
+              "local": "PODOLSKY, H. / ROSENKOPF, J.",
+              "visitante": "MANGO, A. / RAGGIO, G.",
+              "score": "6-0, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 8243,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "HEBRAICA-F",
+          "visitante": "CISSAB-L",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Doble 1",
+              "local": "GUTKOWSKI, M. / DOSORETZ, A.",
+              "visitante": "EDERY, E. / TOBAL, B.",
+              "score": "6-2, 6-1",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "WEINMANN, C. / PARERA, F.",
+              "visitante": "PLAKSIN, G. / NIEBIESKIKWIAT, E.",
+              "score": "6-4, 6-1",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 3",
+              "local": "POJ, M. / RUETTER, C.",
+              "visitante": "ROSA, V. / PUF, G.",
+              "score": "6-2, 6-1",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 8244,
+          "fecha": "30-05-2026",
+          "hora": "14:00",
+          "local": "BIALIK-C",
+          "visitante": "CISSAB-G",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Doble 1",
+              "local": "FAMA, N. / RAVAZZANI, W.",
+              "visitante": "CAMEN, D. / LEVY, D.",
+              "score": "6-4, 7-5",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "KRAVETZ, L. / ORFALI, G.",
+              "visitante": "MILMAR, G. / LUBIENIECKI, D.",
+              "score": "6-2, 6-2",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 3",
+              "local": "MISRAHI, M. / KOENKA, L.",
+              "visitante": "HOLCMAN, P. / MILMAR, M.",
+              "score": "7-5, 2-6, 7-6 (10-7)",
+              "ganador": "V",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 8245,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "CISSAB-J",
+          "visitante": "MACABI-P",
+          "score_local": 3,
+          "score_visitante": 0,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Doble 1",
+              "local": "SZABO, M. / BABENCO, D.",
+              "visitante": "SZAJNBAUM, J. / LISCOVSKY, A.",
+              "score": "6-4, 6-4",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "MOHADEB, W. / ZUCHOVICKI, C.",
+              "visitante": "OSTROVSKY, J. / WALITZKY, M.",
+              "score": "7-6, 6-1",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 3",
+              "local": "GARBET, C. / LEVI, L.",
+              "visitante": "BEREZOVSKY, G. / LUBLIN, G.",
+              "score": "6-4, 6-7, 7-6 (10-8)",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "torneo": "Tenis Apertura 2026",
+      "anio": 2026,
+      "tipo": "Apertura",
+      "idTorneo": 20,
+      "categoria": "Caballeros +48 - B",
+      "fecha_scraped": "30-05-2026",
+      "standings": [],
+      "series": [
+        {
+          "idSerie": 8249,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "MACABI-M",
+          "visitante": "BIALIK-A",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Doble 1",
+              "local": "LONDON, E. / MUHAFRA, A.",
+              "visitante": "MINOND, D. / IAKUBI, J.",
+              "score": "7-6, 7-5",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "KANONICZ, G. / BRODSCHI, A.",
+              "visitante": "RAWE, J. / ALCABIN, M.",
+              "score": "6-2, 6-1",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 3",
+              "local": "GRABINA, A. / PLAN, A.",
+              "visitante": "BERGSTREIT, N. / WURGAFT, S.",
+              "score": "6-0, 6-0",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 8250,
+          "fecha": "30-05-2026",
+          "hora": "12:30",
+          "local": "HACOAJ-Q",
+          "visitante": "CISSAB-F",
+          "score_local": 1,
+          "score_visitante": 2,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Doble 1",
+              "local": "GRIMBERG, M. / KOHN, J.",
+              "visitante": "WEINBERG, D. / HOLC, G.",
+              "score": "6-3, 4-6, 7-6 (10-8)",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "FISZBAJN, G. / GEWERC, G.",
+              "visitante": "CUPEIRO, P. / CIEPELINSKI, D.",
+              "score": "6-3, 6-1",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 3",
+              "local": "VENTURA, B. / CAMJI, S.",
+              "visitante": "UNGAR, G. / BASIN, G.",
+              "score": "6-1, 6-2",
+              "ganador": "V",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 8251,
+          "fecha": "30-05-2026",
+          "hora": "11:00",
+          "local": "EL SOSIEGO-D",
+          "visitante": "CISSAB-Q",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Doble 1",
+              "local": "LIPOVESTKY, D. / CUKIERMAN, H.",
+              "visitante": "POLAK, D. / MATHOV, Q.",
+              "score": "6-2, 4-6, 7-6 (10-5)",
+              "ganador": "V",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "KOVALIVKER, M. / FRANCO, R.",
+              "visitante": "ROSENBERG, A. / MOLERES, G.",
+              "score": "6-4, 7-6",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 3",
+              "local": "ABAS, V. / SCHVARTZBERG, C.",
+              "visitante": "ZALCMAN, D. / MALAMUD, J.",
+              "score": "6-1, 6-3",
+              "ganador": "L",
+              "estado": "Finalizado"
+            }
+          ]
+        },
+        {
+          "idSerie": 8252,
+          "fecha": "30-05-2026",
+          "hora": "09:00",
+          "local": "HEBRAICA-G",
+          "visitante": "BARKOJBA-B",
+          "score_local": 2,
+          "score_visitante": 1,
+          "estado": "A CONFIRMAR",
+          "sede": "",
+          "partidos": [
+            {
+              "tipo": "Doble 1",
+              "local": "BENZADON, M. / KELMAN, M.",
+              "visitante": "SIDELSKI, D. / WOLOSKY, R.",
+              "score": "6-4, 6-1",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 2",
+              "local": "KOGAN, D. / BRENER, M.",
+              "visitante": "CASTIGLIONE, E. / MIRANDA, C.",
+              "score": "6-2, 7-5",
+              "ganador": "L",
+              "estado": "Finalizado"
+            },
+            {
+              "tipo": "Doble 3",
+              "local": "LIMONOFF, L. / PERLOV, M.",
+              "visitante": "CASTELLUCCI, N. / LEMPEL, G.",
+              "score": "3-6, 6-0, 7-6 (11-9)",
+              "ganador": "V",
+              "estado": "Finalizado"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

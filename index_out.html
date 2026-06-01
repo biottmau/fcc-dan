@@ -644,37 +644,37 @@
                     <div class="side-title">Caballeros</div>
                     <div
                         class="side-item active"
-                        onclick="setCat(this, 'Caballeros Libre- Primera')"
+                        onclick="setCat(this, 'Caballeros Libre - Primera')"
                     >
                         1ra <span class="side-badge">9</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Caballeros Libre- Intermedia')"
+                        onclick="setCat(this, 'Caballeros Libre - Intermedia')"
                     >
                         Intermedia <span class="side-badge">9</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Caballeros Libre- Segunda')"
+                        onclick="setCat(this, 'Caballeros Libre - Segunda')"
                     >
                         2da <span class="side-badge">9</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Caballeros Libre- Tercera')"
+                        onclick="setCat(this, 'Caballeros Libre - Tercera')"
                     >
                         3ra <span class="side-badge">8</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Caballeros +48- A')"
+                        onclick="setCat(this, 'Caballeros +48 - A')"
                     >
                         +48 A <span class="side-badge">8</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Caballeros +48- B')"
+                        onclick="setCat(this, 'Caballeros +48 - B')"
                     >
                         +48 B <span class="side-badge">8</span>
                     </div>
@@ -683,43 +683,43 @@
                     <div class="side-title">Damas</div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Damas Libre- Primera')"
+                        onclick="setCat(this, 'Damas Libre - Primera')"
                     >
                         1ra <span class="side-badge">10</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Damas Libre- Intermedia')"
+                        onclick="setCat(this, 'Damas Libre - Intermedia')"
                     >
                         Intermedia <span class="side-badge">9</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Damas Libre- Segunda')"
+                        onclick="setCat(this, 'Damas Libre - Segunda')"
                     >
                         2da <span class="side-badge">9</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Damas Libre- Tercera A')"
+                        onclick="setCat(this, 'Damas Libre - Tercera A')"
                     >
                         3ra A <span class="side-badge">9</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Damas Libre- Tercera B')"
+                        onclick="setCat(this, 'Damas Libre - Tercera B')"
                     >
                         3ra B <span class="side-badge">8</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Damas Libre- Tercera C1')"
+                        onclick="setCat(this, 'Damas Libre - Tercera C1')"
                     >
                         3ra C1 <span class="side-badge">8</span>
                     </div>
                     <div
                         class="side-item"
-                        onclick="setCat(this, 'Damas Libre- Tercera C2')"
+                        onclick="setCat(this, 'Damas Libre - Tercera C2')"
                     >
                         3ra C2 <span class="side-badge">8</span>
                     </div>
@@ -945,7 +945,7 @@
             // ============================================================
             // ESTADO
             // ============================================================
-            let currentCat = "Caballeros Libre- Primera";
+            let currentCat = "Caballeros Libre - Primera";
             let fixtureFilter = "todos";
             let chatHistory = [];
             let chatBusy = false;
@@ -1000,8 +1000,8 @@
                 const title = document.getElementById("standings-title");
                 const sub = document.getElementById("standings-sub");
                 title.textContent = currentCat
-                    .replace("Libre- ", "Libre — ")
-                    .replace("+48- ", "+48 ");
+                    .replace("Libre - ", "Libre — ")
+                    .replace("+48 - ", "+48 ");
                 sub.textContent = "Apertura 2026 · cargando...";
                 el.innerHTML =
                     '<div style="padding:20px;text-align:center;color:#9ca3af;font-size:13px">Cargando...</div>';
@@ -1055,8 +1055,8 @@
                 title.textContent =
                     "Fixture — " +
                     currentCat
-                        .replace("Libre- ", "Libre ")
-                        .replace("+48- ", "+48 ");
+                        .replace("Libre - ", "Libre ")
+                        .replace("+48 - ", "+48 ");
                 el.innerHTML =
                     '<div style="padding:20px;text-align:center;color:#9ca3af;font-size:13px">Cargando...</div>';
                 try {
